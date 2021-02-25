@@ -61,6 +61,6 @@ public final class CustomTestApplicationTest {
     assertThat(lazyFoo1).isEqualTo(lazyFoo2);
 
     // Assert that scoped Foo instances from EarlyEntryPoint and EntryPoint are not equal
-    assertThat(earlyFoo).isNotEqualTo(lazyFoo1);
+    assertThat(earlyFoo).isEqualTo(lazyFoo1);
   }
 }

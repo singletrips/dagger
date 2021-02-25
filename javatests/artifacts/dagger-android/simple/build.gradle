@@ -34,5 +34,18 @@ allprojects {
       mavenCentral()
       mavenLocal()
     }
+    // Local tests: Adds logs for individual local tests
+    tasks.withType(Test) {
+        testLogging {
+            exceptionFormat "full"
+            showCauses true
+            showExceptions true
+            showStackTraces true
+            showStandardStreams true
+            events = ["passed", "skipped", "failed", "standardOut", "standardError"]
+        }
+    }
 }
 
+// Instrumentation tests: Combines test reports for all modules
+apply plugin: 'android-reporting'
